@@ -1,23 +1,24 @@
-const mongoose= require('mongoose');
-const timestamp= require('mongoose-timestamp');
+const mongoose = require('mongoose');
+const timestamp = require('mongoose-timestamp');
 
 const ApplicantSchema = new mongoose.Schema({
-  name : {
-    type : String,
+  name: {
+    type: String,
     required: true,
     trim: true
   },
-  nickName : {
+  nickName: {
     type: String,
     required: true
   },
-  email : {
+  email: {
     type: String,
     required: true
-  },
+  }
 });
+
 ApplicantSchema.plugin(timestamp);
 
-const Applicant = mongoose.model('Applicant', ApplicantSchema);
+const Applicant = mongoose.model('Applicant', ApplicantSchema, 'applicant');
 
 module.exports = Applicant;
