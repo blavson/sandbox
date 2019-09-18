@@ -1,1 +1,69 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('../node_modules/bootstrap/dist/css/bootstrap.css');
+@import url('../node_modules/font-awesome/css/font-awesome.css');
+
+.container {
+  margin-top: 40px;
+}
+
+.applicants-sex-and-age {
+  margin: 5px;
+  padding-left: 2px;
+  list-style: none;
+}
+
+.card-title {
+  padding-top: 2px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-align: left;
+}
+
+.card-body {
+  padding-top: 2px;
+}
+
+.card {
+  border-radius: 20px;
+  background-color: rgb(234, 243, 248);
+}
+
+.applicants-card-image {
+  margin: 2px;
+  border-radius: 10px;
+}
+
+.applicant-properties {
+  font: small normal;
+  color: royalblue;
+}
+
+.applicant-properties ul {
+  padding: 0;
+}
+
+.applicant-properties li {
+  list-style-image: url('assets/images/blue_check_small.jpg');
+}
+
+.icon-blue {
+  color: royalblue;
+}
+
+.applicants-about-me {
+  font-family: 'Indie Flower', cursive;
+  border: 1px solid #a39b9b;
+  border-radius: 15px;
+  padding: 10px 5px;
+  margin: 5px 5px;
+}
+
+.applicants-detailed-button {
+  color: #000;
+  padding: 5px 5px;
+  border: none;
+}
+
+.applicants-detailed-button:hover {
+  background-color: skyblue;
+}

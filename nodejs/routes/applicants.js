@@ -9,9 +9,9 @@ module.exports = server => {
   server.get('/applicant', async (req, res, next) => {
     try {
       const applicants = await Applicant.find({});
-      console.log('+++++++++++++++');
       console.log(applicants);
-      res.send(applicants);
+      //res.send(applicants);
+      res.send({ hello: 'world' });
       next();
     } catch (err) {
       return next(new errors.InvalidContentError(err));

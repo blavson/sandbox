@@ -17,7 +17,8 @@ export class ApplicantComponent implements OnInit {
 
   getApplicants() {
     this.applicantService.getApplicants().subscribe(applicants => {
-      this.applicants = applicants;
+      console.log('HELLLO');
+      // this.applicants = applicants;
       console.log(applicants);
     });
   }
