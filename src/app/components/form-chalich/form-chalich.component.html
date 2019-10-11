@@ -1,28 +1,28 @@
-<form #userForm="ngForm">
+<form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
   <div class="container">
     <div class="form-group">
       <div class="form-group-item">
-        <label for="userNameInput">Username</label>
+        <label for="userName">Username</label>
         <input
           type="text"
-          name="userNameInput"
+          name="userName"
           class="form-control"
           [ngClass]="{
-            'is-invalid': userNameInput.errors && userNameInput.touched
+            'is-invalid': userName.errors && userName.touched
           }"
-          #userNameInput="ngModel"
+          #userName="ngModel"
           [(ngModel)]="aplcnt.userName"
           appForbiddenName="JohnDoe"
           required
           minlength="4"
         />
-        <div *ngIf="userNameInput.errors?.required" class="invalid-feedback">
+        <div *ngIf="userName.errors?.required" class="invalid-feedback">
           Please choose a username.
         </div>
-        <div *ngIf="userNameInput.errors?.minlength" class="invalid-feedback">
+        <div *ngIf="userName.errors?.minlength" class="invalid-feedback">
           Please choose the name with at least 4 characters
         </div>
-        <div *ngIf="userNameInput.errors?.forbiddenName">
+        <div *ngIf="userName.errors?.forbiddenName">
           Oh, C'mon, be more creative!!!
         </div>
       </div>
@@ -30,20 +30,20 @@
 
     <div class="form-group">
       <div class="form-group-item">
-        <label for="emailInput">Email</label>
+        <label for="email">Email</label>
         <input
           type="text"
-          name="emailInput"
+          name="email"
           [(ngModel)]="aplcnt.email"
           class="form-control"
-          #emailInput="ngModel"
+          #email="ngModel"
           [ngClass]="{
-            'is-invalid': emailInput.errors && emailInput.touched
+            'is-invalid': email.errors && email.touched
           }"
           required
           pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
         />
-        <div *ngIf="emailInput.errors?.pattern" class="invalid-feedback">
+        <div *ngIf="email.errors?.pattern" class="invalid-feedback">
           Invalid Email
         </div>
       </div>
