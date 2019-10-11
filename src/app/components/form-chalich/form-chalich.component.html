@@ -1,0 +1,51 @@
+<form #userForm="ngForm">
+  <div class="container">
+    <div class="form-group">
+      <div class="form-group-item">
+        <label for="userNameInput">Username</label>
+        <input
+          type="text"
+          name="userNameInput"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid': userNameInput.invalid && userNameInput.touched
+          }"
+          #userNameInput="ngModel"
+          [(ngModel)]="aplcnt.userName"
+          appForbiddenName="JohnDoe"
+          required
+          minlength="4"
+        />
+        <div *ngIf="userNameInput.errors?.required" class="invalid-feedback">
+          Please choose a username.
+        </div>
+        <div *ngIf="userNameInput.errors?.minlength" class="invalid-feedback">
+          Please choose the name with at least 4 characters
+        </div>
+        <div *ngIf="userNameInput.errors?.forbiddenName">
+          Oh, C'mon, be more creative!!!
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="form-group-item">
+        <label for="lastName">Email</label>
+        <input
+          type="text"
+          name="lastName"
+          [(ngModel)]="aplcnt.email"
+          class="form-control"
+          #lastName="ngModel"
+        />
+      </div>
+    </div>
+
+    <button
+      class="btn btn-secondary"
+      [ngClass]="{ 'disabled': !userForm.errors }"
+    >
+      Submit form
+    </button>
+  </div>
+</form>

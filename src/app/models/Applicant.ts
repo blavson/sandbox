@@ -1,11 +1,13 @@
 export class Applicant {
   id: number;
-  name: string;
+  name?: string;
   userName: string;
+  dob?: string;
   email: string;
-  gender: string;
+  gender?: string;
   characteristics: {
-    height: number;
-    weight: number;
+    height?: number;
+    weight?: number;
   };
+  joined: string;
 }
