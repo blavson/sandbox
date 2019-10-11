@@ -8,7 +8,7 @@
           name="userNameInput"
           class="form-control"
           [ngClass]="{
-            'is-invalid': userNameInput.invalid && userNameInput.touched
+            'is-invalid': userNameInput.errors && userNameInput.touched
           }"
           #userNameInput="ngModel"
           [(ngModel)]="aplcnt.userName"
@@ -30,20 +30,29 @@
 
     <div class="form-group">
       <div class="form-group-item">
-        <label for="lastName">Email</label>
+        <label for="emailInput">Email</label>
         <input
           type="text"
-          name="lastName"
+          name="emailInput"
           [(ngModel)]="aplcnt.email"
           class="form-control"
-          #lastName="ngModel"
+          #emailInput="ngModel"
+          [ngClass]="{
+            'is-invalid': emailInput.errors && emailInput.touched
+          }"
+          required
+          pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
         />
+        <div *ngIf="emailInput.errors?.pattern" class="invalid-feedback">
+          Invalid Email
+        </div>
       </div>
+
     </div>
 
     <button
       class="btn btn-secondary"
-      [ngClass]="{ 'disabled': !userForm.errors }"
+      [ngClass]="{ 'disabled': !userForm.form.valid }"
     >
       Submit form
     </button>
